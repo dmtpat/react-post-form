@@ -7,6 +7,10 @@ function App() {
   const [body, setBody] = useState("Corpo")
   const [isPublic, setIsPublic] = useState(false)
 
+  function titleChange(e) {
+    console.log(e.target.value);
+    setTitle(e.target.value);
+  }
 
   return (
     <>
@@ -26,7 +30,7 @@ function App() {
                 <div className="row g-2">
                   <div className="col">
                     <label htmlFor="titleInput" className='form-label'>Titolo</label>
-                    <input name="title" value={title} type="text" placeholder='Titolo' className='form-control' />
+                    <input name="title" value={title} type="text" placeholder='Titolo' className='form-control' onChange={titleChange} />
                   </div>
                   <div className="col">
                     <label htmlFor="authorInput" className='form-label'>Autore</label>
