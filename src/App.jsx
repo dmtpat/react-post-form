@@ -2,15 +2,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 function App() {
-  const [author, setAuthor] = useState("Autore")
-  const [title, setTitle] = useState("Titolo")
-  const [body, setBody] = useState("Corpo")
+  const [author, setAuthor] = useState("")
+  const [title, setTitle] = useState("")
+  const [body, setBody] = useState("")
   const [isPublic, setIsPublic] = useState(false)
 
   function titleChange(e) {
     console.log(e.target.value);
     setTitle(e.target.value);
   }
+  const [article, setArticle] = useState({
+    author: "Pippo",
+    title: "",
+    body: "",
+    public: false
+  }
+  )
+
 
   return (
     <>
@@ -34,15 +42,15 @@ function App() {
                   </div>
                   <div className="col">
                     <label htmlFor="authorInput" className='form-label'>Autore</label>
-                    <input name="author" value={author} type="text" placeholder='Autore' className='form-control' />
+                    <input name="author" value={article.author} type="text" placeholder='Autore' className='form-control' />
                   </div>
                   <div className="col-12">
                     <label htmlFor="articleInput" className='form-label'>Corpo dell'articolo</label>
-                    <textarea name="article" value={body} id="article" rows={5} placeholder="Inserisci qui l'articolo" className='form-control' ></textarea>
+                    <textarea name="body" value={body} id="body" rows={5} placeholder="Inserisci qui l'articolo" className='form-control' ></textarea>
                   </div>
                   <div className="col-12">
                     <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="radio" value={isPublic} name="public" id="state" className='form-check-input mx-2' />
+                    <input type="radio" value={isPublic} name="isPublic" id="isPublic" className='form-check-input mx-2' />
                   </div>
                 </div>
               </div>
