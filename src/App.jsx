@@ -21,8 +21,10 @@ function App() {
   function articleChange(e) {
     const newArticle = { ...article };
     console.log(e.target.name);
+    console.log(e);
     newArticle[e.target.name] = e.target.value;
     setArticle(newArticle);
+
   }
   function isPublic(e) {
     console.log(e.target.checked);
@@ -62,7 +64,7 @@ function App() {
                   </div>
                   <div className="col-12">
                     <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="radio" value={Boolean(article.public)} name="public" id="public" className='form-check-input mx-2' checked={Boolean(article.public)} onChange={isPublic} />
+                    <input type="radio" name="public" id="radioButton" className='form-check-input mx-2' checked={Boolean(article.public)} onChange={isPublic} />
                   </div>
                 </div>
               </div>
