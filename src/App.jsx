@@ -2,23 +2,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 function App() {
-  const [author, setAuthor] = useState("")
-  const [title, setTitle] = useState("")
-  const [body, setBody] = useState("")
-  const [isPublic, setIsPublic] = useState(false)
+  // const [author, setAuthor] = useState("")
+  // const [title, setTitle] = useState("")
+  // const [body, setBody] = useState("")
+  // const [isPublic, setIsPublic] = useState(false)
 
-  function titleChange(e) {
-    console.log(e.target.value);
-    setTitle(e.target.value);
-  }
+  // function titleChange(e) {
+  //   console.log(e.target.value);
+  //   setTitle(e.target.value);
+  //}
   const [article, setArticle] = useState({
-    author: "Pippo",
+    author: "",
     title: "",
     body: "",
     public: false
   }
   )
-
+  function articleChange(e) {
+    const newArticle = { ...article };
+    console.log(e.target.name);
+    newArticle[e.target.name] = e.target.value;
+    setArticle(newArticle);
+  }
 
   return (
     <>
@@ -26,10 +31,10 @@ function App() {
       <div className="container-fluid">
         <div className="row">
           <div className="card col-6">
-            <h2>{title} <span class="badge rounded-pill text-bg-primary">is public: {isPublic}</span></h2>
-            <h6 class="card-subtitle mb-2 text-body-secondary">{author}</h6>
+            <h2>{article.title} <span className="badge rounded-pill text-bg-primary">is public: {article.public}</span></h2>
+            <h6 className="card-subtitle mb-2 text-body-secondary">{article.author}</h6>
             <p>
-              {body}
+              {article.body}
             </p>
           </div>
           <div className='col-6'>
@@ -38,19 +43,19 @@ function App() {
                 <div className="row g-2">
                   <div className="col">
                     <label htmlFor="titleInput" className='form-label'>Titolo</label>
-                    <input name="title" value={title} type="text" placeholder='Titolo' className='form-control' onChange={titleChange} />
+                    <input name="title" value={article.title} type="text" placeholder='Titolo' className='form-control' onChange={articleChange} />
                   </div>
                   <div className="col">
                     <label htmlFor="authorInput" className='form-label'>Autore</label>
-                    <input name="author" value={article.author} type="text" placeholder='Autore' className='form-control' />
+                    <input name="author" value={article.author} type="text" placeholder='Autore' className='form-control' onChange={articleChange} />
                   </div>
                   <div className="col-12">
                     <label htmlFor="articleInput" className='form-label'>Corpo dell'articolo</label>
-                    <textarea name="body" value={body} id="body" rows={5} placeholder="Inserisci qui l'articolo" className='form-control' ></textarea>
+                    <textarea name="body" value={article.body} id="body" rows={5} placeholder="Inserisci qui l'articolo" className='form-control' onChange={articleChange} ></textarea>
                   </div>
                   <div className="col-12">
                     <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="radio" value={isPublic} name="isPublic" id="isPublic" className='form-check-input mx-2' />
+                    <input type="radio" value={article.public} name="public" id="public" className='form-check-input mx-2' />
                   </div>
                 </div>
               </div>
