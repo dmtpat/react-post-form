@@ -24,6 +24,13 @@ function App() {
     newArticle[e.target.name] = e.target.value;
     setArticle(newArticle);
   }
+  function isPublic(e) {
+    console.log(e.target.checked);
+    console.log(e.target);
+    const newArticle = { ...article };
+    newArticle.public = !Boolean(e.target.public);
+    setArticle(newArticle);
+  }
 
   return (
     <>
@@ -31,7 +38,7 @@ function App() {
       <div className="container-fluid">
         <div className="row">
           <div className="card col-6">
-            <h2>{article.title} <span className="badge rounded-pill text-bg-primary">is public: {article.public}</span></h2>
+            <h2>{article.title} <span className={`badge rounded-pill text-bg-primary ${article.public ? "visible" : "invisible"}`}>Pubblico</span></h2>
             <h6 className="card-subtitle mb-2 text-body-secondary">{article.author}</h6>
             <p>
               {article.body}
@@ -55,7 +62,7 @@ function App() {
                   </div>
                   <div className="col-12">
                     <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="radio" value={article.public} name="public" id="public" className='form-check-input mx-2' />
+                    <input type="radio" value={Boolean(article.public)} name="public" id="public" className='form-check-input mx-2' checked={Boolean(article.public)} onChange={isPublic} />
                   </div>
                 </div>
               </div>
