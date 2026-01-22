@@ -9,7 +9,7 @@ Il form dovrà gestire questi dati:
 - public (boolean) - Se il post deve essere pubblico (true) o una bozza (false).
 
 ## PASSAGGI CONSIGLIATI:
-- creiamo una nuvoa app react;
+- creiamo una nuova app react;
 - dichiariamo una serie di state per salvare i dati;
 - mostriamo i {dati} in pagina;
 - creiamo una serie di input per gestire i dati;

@@ -30,7 +30,7 @@ function App() {
     console.log(e.target.checked);
     console.log(e.target);
     const newArticle = { ...article };
-    newArticle.public = !Boolean(e.target.public);
+    newArticle.public = (e.target.checked);
     setArticle(newArticle);
   }
 
@@ -64,7 +64,7 @@ function App() {
                   </div>
                   <div className="col-12">
                     <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="radio" name="public" id="radioButton" className='form-check-input mx-2' checked={Boolean(article.public)} onChange={isPublic} />
+                    <input type="checkbox" name="public" id="radioButton" className='form-check-input mx-2' checked={article.public} onChange={isPublic} />
                   </div>
                 </div>
               </div>
