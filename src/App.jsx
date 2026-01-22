@@ -22,17 +22,15 @@ function App() {
     const newArticle = { ...article };
     console.log(e.target.name);
     console.log(e);
-    newArticle[e.target.name] = e.target.value;
+    if (e.target.name = "public") {
+      newArticle.public = (e.target.checked);
+    } else {
+      newArticle[e.target.name] = e.target.value;
+    }
     setArticle(newArticle);
 
   }
-  function isPublic(e) {
-    console.log(e.target.checked);
-    console.log(e.target);
-    const newArticle = { ...article };
-    newArticle.public = (e.target.checked);
-    setArticle(newArticle);
-  }
+
 
   return (
     <>
@@ -65,7 +63,7 @@ function App() {
                   <div className="col-12">
                     <div className="form-switch">
                       <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                      <input type="checkbox" name="public" role="switch" id="radioButton" className='form-check-input mx-2' checked={article.public} onChange={isPublic} />
+                      <input type="checkbox" name="public" role="switch" id="radioButton" className='form-check-input mx-2' checked={article.public} onChange={articleChange} />
                     </div>
                   </div>
                 </div>
