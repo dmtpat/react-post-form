@@ -63,8 +63,10 @@ function App() {
                     <textarea name="body" value={article.body} id="body" rows={5} placeholder="Inserisci qui l'articolo" className='form-control' onChange={articleChange} ></textarea>
                   </div>
                   <div className="col-12">
-                    <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
-                    <input type="checkbox" name="public" id="radioButton" className='form-check-input mx-2' checked={article.public} onChange={isPublic} />
+                    <div className="form-switch">
+                      <label htmlFor="isPublic" className='form-label'>Selezionare per rendere pubblico </label>
+                      <input type="checkbox" name="public" role="switch" id="radioButton" className='form-check-input mx-2' checked={article.public} onChange={isPublic} />
+                    </div>
                   </div>
                 </div>
               </div>
