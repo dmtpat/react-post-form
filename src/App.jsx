@@ -22,7 +22,7 @@ function App() {
     const newArticle = { ...article };
     console.log(e.target.name);
     console.log(e);
-    if (e.target.name = "public") {
+    if (e.target.name == "public") {
       newArticle.public = (e.target.checked);
     } else {
       newArticle[e.target.name] = e.target.value;
